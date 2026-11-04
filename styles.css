@@ -246,3 +246,82 @@ button,input,select,textarea{font:inherit;color:inherit}
 .card.soldout .c-price{text-decoration:line-through;color:var(--muted)}
 .so-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-6deg);z-index:2;background:rgba(46,51,43,.85);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:999px;white-space:nowrap}
 @media (min-width:600px){.so-badge{font-size:.75rem}}
+
+/* ==== v3 2026-11-04: match the logo's THIN lettering ====
+   Hebrew "בית מחמצת" → Frank Ruhl Libre Light (300); English "SOURDOUGH HOUSE" → Bellefair (thin Roman caps, wide tracking);
+   small labels like "SPELT" → Montserrat Light. Colours sampled from logo.png: sage #6c7966, light grey #b9bbb2. No bold anywhere. */
+@font-face{font-family:"Bellefair";src:url(fonts/bellefair-20261104c.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Frank Ruhl Light";src:url(fonts/frank-he-20261104c.woff2) format("woff2");font-weight:300 900;font-display:swap;unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:"Montserrat Light";src:url(fonts/montserrat-300-20261104c.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--sage:#6c7966;--sage-d:#5d6a58;--ink:#6c7966;--muted:#8e9187;--grey:#a3a59b;--stone:#b9bbb2;
+  --logo:"Bellefair","Frank Ruhl Light",serif;--serif:var(--logo);--sans:var(--logo);--label:"Montserrat Light","Frank Ruhl Light",sans-serif}
+html body,html body *,html body *::before,html body *::after{font-family:"Bellefair","Frank Ruhl Light",serif!important;font-weight:300!important;font-synthesis:none}
+body{color:var(--ink);font-size:17px}
+a{color:var(--sage)}
+/* Hebrew: light, airy, a little tracking like the logo */
+html body [data-l=he],html body [lang=he]{letter-spacing:.04em}
+/* English: thin caps with the logo's wide tracking on short lines; normal case for paragraphs */
+.pair>[data-l=en]{color:var(--muted)}
+h2 .pair>[data-l=he]{letter-spacing:.14em;line-height:1.25;color:var(--sage)}
+h2 .pair>[data-l=en]{text-transform:uppercase;letter-spacing:.26em;font-size:.46em;color:var(--grey);margin-top:8px}
+h2,h3{color:var(--sage)}
+.menu-group h3 .pair>[data-l=he]{letter-spacing:.1em}
+.menu-group h3 .pair>[data-l=en]{text-transform:uppercase;letter-spacing:.24em;font-size:.62em;color:var(--grey)}
+/* small labels in the logo's thin sans ("SPELT") */
+html body .eyebrow,html body .eyebrow *,html body .lbl,html body .lbl *,html body .pickup span,html body .pickup span *{font-family:var(--label)!important}
+.eyebrow{letter-spacing:.3em;color:var(--grey);font-size:.72rem}
+.eyebrow .pair>[data-l=he],.lbl .pair>[data-l=he]{font-weight:300;letter-spacing:.06em}
+.lbl{color:var(--grey);letter-spacing:.18em}
+.tagline{color:var(--muted)}
+.tagline [data-l=en],.prose p[data-l=en]{letter-spacing:.02em}
+.prose p[data-l=he]{color:var(--sage);font-size:1.08rem}
+.prose p[data-l=en]{color:var(--muted);font-size:1.02rem}
+.prose .lead{color:var(--sage)}
+/* nav */
+.topnav .pair>[data-l=he]{font-size:1rem;color:var(--sage);letter-spacing:.06em}
+.topnav .pair>[data-l=en]{font-size:.68rem;letter-spacing:.22em;color:var(--grey);margin-top:3px}
+/* buttons */
+.btn{letter-spacing:.06em}
+.btn .pair>[data-l=he]{font-size:1.05rem;letter-spacing:.06em}
+.btn .pair>[data-l=en]{text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;opacity:.85}
+.btn-ghost,.btn-wa{color:var(--sage)}
+.num{color:var(--sage);letter-spacing:.06em}
+.order-row{color:var(--sage)}
+/* bread cards: thin Hebrew name, thin caps English, light price */
+.c-name{color:var(--sage);padding:7px 4px 0}
+.c-name .pair>[data-l=he]{font-size:1rem;line-height:1.2;letter-spacing:.05em;color:var(--sage)}
+.c-name .pair>[data-l=en]{font-size:.8rem;line-height:1.2;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:3px}
+.c-price{font-size:1.05rem;letter-spacing:.06em;color:var(--sage);padding:3px 4px 7px}
+.c-desc .pair>[data-l=he]{font-size:.8rem}
+.c-desc .pair>[data-l=en]{font-size:.8rem;letter-spacing:.03em}
+.so-badge{letter-spacing:.12em}
+.footer,.fine,.order-pickup{color:var(--muted)}
+.review-invite .pair>[data-l=he]{color:var(--sage)}
+@media (min-width:900px){.c-name .pair>[data-l=he]{font-size:1.1rem}.c-name .pair>[data-l=en]{font-size:.8rem}}
+
+/* v3 compact phone menu: keep 6+ breads on one 390x844 screen with the thin lettering */
+.eyebrow{font-size:.8rem}
+.so-badge{font-size:.8rem}
+@media (max-width:899px){
+  #menu{padding-top:14px}
+  #menu .eyebrow{font-size:.8rem;margin-bottom:0}
+  #menu h2{font-size:1.45rem;margin-bottom:10px}
+  #menu h2 .pair>[data-l=en]{font-size:.5em;margin-top:4px}
+  .menu{gap:10px}
+  .menu-group h3{font-size:1.05rem;margin-bottom:6px}
+  .menu-group h3 .pair>[data-l=en]{font-size:.78rem;letter-spacing:.2em}
+  .cards{gap:7px}
+  .ph{aspect-ratio:2/1}
+  .c-name{padding:5px 3px 0}
+  .c-name .pair>[data-l=he]{font-size:.92rem;line-height:1.15;letter-spacing:.03em}
+  .c-name .pair>[data-l=en]{font-size:.75rem;line-height:1.15;letter-spacing:.06em;margin-top:2px}
+  .c-price{font-size:1rem;padding:2px 3px 5px}
+}
+
+/* v3 legibility floor: tracked caps no smaller than ~12.5px on phone */
+.topnav .pair>[data-l=en]{font-size:.78rem;letter-spacing:.14em}
+.btn .pair>[data-l=en]{font-size:.78rem;letter-spacing:.16em}
+@media (max-width:899px){
+  #menu h2 .pair>[data-l=en]{font-size:.56em}
+  .c-name .pair>[data-l=en]{font-size:.78rem;letter-spacing:.05em}
+}
